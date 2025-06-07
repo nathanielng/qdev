@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lambda Layer Generator</title>
+  <link rel="stylesheet" href="lambda-generator-2.css">
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>Python Lambda Layer Generator</h1>
+    
+    <div class="form-group">
+      <label for="pythonVersion">Python Version:</label>
+      <div class="version-buttons">
+        <button class="version-btn selected" data-version="3.10">3.10</button>
+        <button class="version-btn" data-version="3.11">3.11</button>
+        <button class="version-btn" data-version="3.12">3.12</button>
+        <button class="version-btn" data-version="3.13">3.13</button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="libraries">Libraries (one per line):</label>
+      <textarea id="libraries" placeholder="requests==2.32.3&#10;boto3==1.28.0">requests==2.32.3</textarea>
+    </div>
+    
+    <div class="form-group">
+      <label>Package Manager:</label>
+      <div class="toggle-container">
+        <button id="pyenvBtn" class="toggle-btn selected">pyenv</button>
+        <button id="uvBtn" class="toggle-btn">uv</button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="zipName">Output ZIP filename:</label>
+      <input type="text" id="zipName" placeholder="lambda-layer" value="lambda-layer">
+    </div>
+    
+    <div class="code-container">
+      <div class="code-header">
+        <h3>Generated Code</h3>
+        <div class="code-actions">
+          <button id="copyBtn" class="action-btn">
+            <span>Copy</span>
+          </button>
+          <button id="downloadBtn" class="action-btn">
+            <span>Download</span>
+          </button>
+        </div>
+      </div>
+      <pre><code class="language-bash" id="generatedCode"></code></pre>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="lambda-generator-2.js"></script>
+</body>
+</html>
